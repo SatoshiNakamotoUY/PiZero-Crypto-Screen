@@ -1,8 +1,8 @@
-#Credits
+# Credits
 
 Project is forked from dr-mod's zero-btc-screen.
 
-#Zero BTC Screen
+# Zero BTC Screen
 
 Bitcoin (or any other currency) stock price for your RPi Zero
 
