@@ -29,7 +29,7 @@ class Epd2in13bv3(Observer):
         self.draw_ry = ImageDraw.Draw(self.image_ry)
         self.mode = mode
 
-    def form_image(self, prices):
+    def form_image(self, coin, prices):
         self.draw_black.rectangle((0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), fill="white")
         screen_draw = self.draw_black
         if self.mode == "candle":
@@ -43,10 +43,10 @@ class Epd2in13bv3(Observer):
         screen_draw.line([(9, 83), (204, 83)])
         screen_draw.line([(33, 3), (33, 80)])
         screen_draw.line([(51, 87), (51, 101)])
-        Plot.caption(flatten_prices[len(flatten_prices) - 1], 81, SCREEN_WIDTH, FONT_LARGE, screen_draw)
+        Plot.caption(coin, flatten_prices[len(flatten_prices) - 1], 81, SCREEN_WIDTH, FONT_LARGE, screen_draw)
 
-    def update(self, data):
-        self.form_image(data)
+    def update(self, coin, data):
+        self.form_image(coin, data)
         image_black_rotated = self.image_black.rotate(180)
         image_ry_rotated = self.image_ry.rotate(180)
         self.epd.display(
