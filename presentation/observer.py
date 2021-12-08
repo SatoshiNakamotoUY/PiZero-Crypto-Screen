@@ -2,7 +2,7 @@ class Observer:
     def __init__(self, observable):
         observable.register(self)
 
-    def update(self, data):
+    def update(self, coin, data):
         pass
 
 
@@ -13,9 +13,9 @@ class Observable:
     def register(self, observer):
         self._observers.append(observer)
 
-    def update_observers(self, data):
+    def update_observers(self, coin, data):
         for observer in self._observers:
-            observer.update(data)
+            observer.update(coin, data)
 
     def close(self):
         for observer in self._observers:
