@@ -43,7 +43,7 @@ class Plot:
         price_text = Plot.human_format(price, 8, 2)
         text_width, _ = draw.textsize(price_text, font)
         # price_position = (((screen_width - text_width - price_offset) / 2) + price_offset, y)
-        price_position = ((screen_width - text_width - price_offset), y)
+        price_position = ((price_offset + text_width), y)
         draw.text(price_position, price_text, font=font, fill=fill)
 
     @staticmethod
