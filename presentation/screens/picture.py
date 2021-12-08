@@ -20,7 +20,7 @@ class Picture(Observer):
         self.filename = filename
         self.mode = mode
 
-    def update(self, prices):
+    def update(self, coin, prices):
         image = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
         screen_draw = ImageDraw.Draw(image)
         if self.mode == "candle":
