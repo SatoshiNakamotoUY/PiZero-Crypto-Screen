@@ -46,7 +46,7 @@ def main():
         for coin in itertools.cycle(coins):
             try:
                 prices = [entry[1:] for entry in get_dummy_data()] if config.dummy_data else fetch_prices(coin)
-                data_sink.update_observers(prices)
+                data_sink.update_observers(coin, prices)
                 time.sleep(config.refresh_interval)
             except (HTTPError, URLError) as e:
                 logger.error(str(e))
