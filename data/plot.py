@@ -110,7 +110,7 @@ class Plot:
         magnitude = 0
         num = number
         # truncate to 2 decimal places
-        number = %.2f'%({number})
+        number = '%.2f'%({number})
         return number
         while abs(num) >= 10:
             magnitude += 1
