@@ -32,7 +32,7 @@ def fetch_prices(token):
     data = urlopen(req).read()
     external_data = json.loads(data)
     #prices = [entry[1:] for entry in external_data['data']['entries']]
-    prices = [entry[1:] for entry in external_data
+    prices = [entry[1:] for entry in external_data]
     return prices
 
 
