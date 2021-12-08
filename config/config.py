@@ -34,7 +34,11 @@ class Config:
 
     @property
     def currency(self):
-        return self._conf.get('base', 'currency', fallback='BTC')
+        return self._conf.get('base', 'currency', fallback='bitcoin:BTC')
+    
+    @property
+    def days(self):
+        return self._conf.get('base', 'days', fallback='1')
 
     @staticmethod
     def _load_screens(file_name):
