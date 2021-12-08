@@ -109,6 +109,8 @@ class Plot:
     def human_format(number, length, fractional_minimal=0):
         magnitude = 0
         num = number
+        # truncate to 2 decimal places
+        number = %.3f'%({number})
         while abs(num) >= 10:
             magnitude += 1
             num /= 10.0
