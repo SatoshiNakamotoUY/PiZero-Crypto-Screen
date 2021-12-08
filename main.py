@@ -27,7 +27,7 @@ def fetch_prices(token):
     end_date = timeslot_end.strftime(DATETIME_FORMAT)
     start_data = (timeslot_end - timedelta(days=DATA_SLICE_DAYS)).strftime(DATETIME_FORMAT)
     #url = f'https://production.api.coindesk.com/v2/price/values/{token}?ohlc=true&start_date={start_data}&end_date={end_date}'
-    url = f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency=usd&days={DATA_SLICE_DAYS}'
+    url = f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency=usd&days={config.days}'
     req = Request(url)
     data = urlopen(req).read()
     external_data = json.loads(data)
