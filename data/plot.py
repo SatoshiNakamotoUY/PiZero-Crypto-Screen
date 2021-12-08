@@ -110,7 +110,8 @@ class Plot:
         magnitude = 0
         num = number
         # truncate to 2 decimal places
-        number = %.3f'%({number})
+        number = %.2f'%({number})
+        return number
         while abs(num) >= 10:
             magnitude += 1
             num /= 10.0
@@ -118,4 +119,5 @@ class Plot:
         if length >= magnitude + fractional_minimal + 2:
             fractional_length = length - magnitude - 2
             format_string = f'%.{fractional_length}f'
-        return format_string % number
+        #return format_string % number
+        return number
