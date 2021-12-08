@@ -38,11 +38,12 @@ class Plot:
         draw.text((center_x(price), position_last[1]), price, font=font, fill=fill)
 
     @staticmethod
-    def caption(coin, price, y, screen_width, font, draw, fill=None, currency_offset=-1, price_offset=60):
-        draw.text((currency_offset, y), coin[:3], font=font, fill=fill)
+    def caption(coin, price, y, screen_width, font, draw, fill=None, currency_offset=-1, price_offset=80):
+        draw.text((currency_offset, y), coin[:4], font=font, fill=fill)
         price_text = Plot.human_format(price, 8, 2)
         text_width, _ = draw.textsize(price_text, font)
-        price_position = (((screen_width - text_width - price_offset) / 2) + price_offset, y)
+        # price_position = (((screen_width - text_width - price_offset) / 2) + price_offset, y)
+        price_position = ((screen_width - text_width - price_offset), y)
         draw.text(price_position, price_text, font=font, fill=fill)
 
     @staticmethod
