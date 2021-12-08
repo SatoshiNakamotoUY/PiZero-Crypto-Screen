@@ -117,7 +117,7 @@ To make it run on startup you can choose from 2 options:
  
         [Service]
         ExecStart=/usr/bin/python3 -u main.py
-        WorkingDirectory=/home/pi/zero-btc-screen
+        WorkingDirectory=/home/pi/zero-crypto-screen
         StandardOutput=inherit
         StandardError=inherit
         Restart=always
