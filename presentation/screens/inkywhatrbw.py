@@ -31,7 +31,7 @@ class Inkywhatrbw(Observer):
         self.image = Image.new('P', (SCREEN_WIDTH, SCREEN_HEIGHT))
         self.mode = mode
 
-    def form_image(self, prices):
+    def form_image(self, coin, prices):
         WHITE = self.inky_display.WHITE
         RED = self.inky_display.RED
         BLACK = self.inky_display.BLACK
@@ -47,10 +47,10 @@ class Inkywhatrbw(Observer):
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN - SMALL_FONT_SIZE - 3), draw=screen_draw, fill=BLACK)
         screen_draw.line([(0, SCREEN_HEIGHT - BOTTOM_MARGIN), (SCREEN_WIDTH, SCREEN_HEIGHT - BOTTOM_MARGIN)], fill=BLACK)
         screen_draw.line([(LEFT_MARGIN, 0), (LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN)], fill=BLACK)
-        Plot.caption(flatten_prices[len(flatten_prices) - 1], SCREEN_HEIGHT - BOTTOM_MARGIN, SCREEN_WIDTH, FONT_LARGE, screen_draw, fill=BLACK, currency_offset=LEFT_MARGIN, price_offset=LEFT_MARGIN)
+        Plot.caption(coin, flatten_prices[len(flatten_prices) - 1], SCREEN_HEIGHT - BOTTOM_MARGIN, SCREEN_WIDTH, FONT_LARGE, screen_draw, fill=BLACK, currency_offset=LEFT_MARGIN, price_offset=LEFT_MARGIN)
 
-    def update(self, data):
-        self.form_image(data)
+    def update(self, coin, data):
+        self.form_image(coin, data)
         self.inky_display.set_image(self.image)
         self.inky_display.show()
 
