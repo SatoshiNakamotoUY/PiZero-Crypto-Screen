@@ -1,4 +1,8 @@
-# Zero BTC Screen
+#Credits
+
+Project is forked from dr-mod's zero-btc-screen.
+
+#Zero BTC Screen
 
 Bitcoin (or any other currency) stock price for your RPi Zero
 
@@ -97,11 +101,11 @@ To make it run on startup you can choose from 2 options:
     1. `sudo nano /etc/rc.local`
     2. Add one the following before `exit 0`
    ```
-   /usr/bin/python3 /home/pi/zero-btc-screen/main.py &
+   /usr/bin/python3 /home/pi/zero-crypto-screen/main.py &
    ```
    conversely, you can run in `screen` you can install it with `sudo apt-get install screen`
    ```
-   su - pi -c "/usr/bin/screen -dm sh -c '/usr/bin/python3 /home/pi/zero-btc-screen/main.py'"
+   su - pi -c "/usr/bin/screen -dm sh -c '/usr/bin/python3 /home/pi/zero-crypto-screen/main.py'"
    ```
 2. Using the system's services daemon
     1. Create a new service configuration file
