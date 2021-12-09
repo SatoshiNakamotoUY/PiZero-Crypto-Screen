@@ -56,6 +56,10 @@ class Epd2in13v2(Observer):
         # TODO: add a way to switch bewen partial and full update
         # epd.presentation(epd.getbuffer(screen_image_rotated))
         self.epd.displayPartial(self.epd.getbuffer(screen_image_rotated))
+    
+    def screenrefresh(self):
+        self.epd.init(self.epd.FULL_UPDATE)
+        self.epd.Clear(0xFF)
 
     @staticmethod
     def close():
