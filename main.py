@@ -9,7 +9,7 @@ from config.config import config
 from logs import logger
 from presentation.observer import Observable
 
-SCREEN_REFRESH_INTERVAL = 900
+SCREEN_REFRESH_INTERVAL = 9600
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M"
 
 
