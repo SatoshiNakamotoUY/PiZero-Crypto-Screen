@@ -33,8 +33,12 @@ class Config:
         return self._conf.getint('base', 'refresh_interval_minutes', fallback=15) * 60
 
     @property
-    def currency(self):
-        return self._conf.get('base', 'currency', fallback='bitcoin:BTC')
+    def cryptocurrencies(self):
+        return self._conf.get('base', 'cryptocurrencies', fallback='bitcoin:BTC')
+    
+    @property
+    def currency(self)
+        return self._conf.get('base', 'currency', fallback='usd')
     
     @property
     def days(self):
