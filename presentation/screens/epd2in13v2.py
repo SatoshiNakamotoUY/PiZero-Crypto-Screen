@@ -60,6 +60,9 @@ class Epd2in13v2(Observer):
     def screenrefresh(self):
         self.epd.init(self.epd.FULL_UPDATE)
         self.epd.Clear(0xFF)
+        screen_image = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
+        self.epd.displayPartBaseImage(epd.getbuffer(screen_image))
+        self.epd.init(epd.PART_UPDATE)
 
     @staticmethod
     def close():
