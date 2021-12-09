@@ -53,6 +53,11 @@ class Inkywhatrbw(Observer):
         self.form_image(coin, data)
         self.inky_display.set_image(self.image)
         self.inky_display.show()
+        
+    def screenrefresh(self):
+        self.inky_display = InkyWHAT("red")
+        self.inky_display.set_border(self.inky_display.WHITE)
+        self.image = Image.new('P', (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     def close(self):
         pass
