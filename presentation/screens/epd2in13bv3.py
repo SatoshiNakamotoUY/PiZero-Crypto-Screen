@@ -53,6 +53,13 @@ class Epd2in13bv3(Observer):
             self.epd.getbuffer(image_black_rotated),
             self.epd.getbuffer(image_ry_rotated)
         )
+    
+    def screenrefresh(self):
+        self.epd.init()
+        self.image_black = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
+        self.image_ry = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
+        self.draw_black = ImageDraw.Draw(self.image_black)
+        self.draw_ry = ImageDraw.Draw(self.image_ry)
 
     def close(self):
         self.epd.Dev_exit()
