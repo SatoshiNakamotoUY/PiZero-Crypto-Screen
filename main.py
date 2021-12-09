@@ -19,7 +19,7 @@ def get_dummy_data():
 
 def fetch_prices(token):
     logger.info('Fetching prices')
-    url = f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency=usd&days={config.days}'
+    url = f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency={config.currency}&days={config.days}'
     req = Request(url)
     data = urlopen(req).read()
     external_data = json.loads(data)
@@ -33,7 +33,7 @@ def main():
     data_sink = Observable()
     builder = Builder(config)
     builder.bind(data_sink)
-    coins = config.currency.split(',')
+    coins = config.cryptocurrencies.split(',')
 
     try:
         for coin in itertools.cycle(coins):
