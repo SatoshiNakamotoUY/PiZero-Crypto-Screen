@@ -9,6 +9,7 @@ from config.config import config
 from logs import logger
 from presentation.observer import Observable
 
+SCREEN_REFRESH_INTERVAL = 3600
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M"
 
 
@@ -34,12 +35,17 @@ def main():
     builder = Builder(config)
     builder.bind(data_sink)
     coins = config.cryptocurrencies.split(',')
+    refresh_bucket = 0
 
     try:
         for coin in itertools.cycle(coins):
             try:
+                if refresh_bucket > SCREEN_REFRESH_INTERVAL:
+                    data_sink.screenrefresh_observers()
+                    refresh_bucket = 0
                 prices = [entry[1:] for entry in get_dummy_data()] if config.dummy_data else fetch_prices(coin.split(':')[0])
                 data_sink.update_observers(coin.split(':')[1], prices)
+                refresh_bucket = refresh_bucket + config.refresh_interval
                 time.sleep(config.refresh_interval)
             except (HTTPError, URLError) as e:
                 logger.error(str(e))
