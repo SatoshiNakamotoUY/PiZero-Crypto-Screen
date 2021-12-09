@@ -31,7 +31,7 @@ class Epd2in13v2(Observer):
         epd.Clear(0xFF)
         screen_image = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
         epd.displayPartBaseImage(epd.getbuffer(screen_image))
-        epd.init(epd.PART_UPDATE)
+        #epd.init(epd.PART_UPDATE)
         return screen_image
 
     def form_image(self, coin, prices, screen_draw):
