@@ -54,6 +54,7 @@ def main():
         logger.error(str(e))
     except KeyboardInterrupt:
         logger.info('Exit')
+        data_sink.screenrefresh_observers()
         data_sink.close()
         exit()
 
