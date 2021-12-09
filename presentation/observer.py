@@ -4,6 +4,9 @@ class Observer:
 
     def update(self, coin, data):
         pass
+    
+    def screenrefresh(self):
+        pass
 
 
 class Observable:
@@ -16,6 +19,10 @@ class Observable:
     def update_observers(self, coin, data):
         for observer in self._observers:
             observer.update(coin, data)
+    
+    def screenrefresh_observers(self):
+        for observer in self._observers:
+            observer.screenrefresh()
 
     def close(self):
         for observer in self._observers:
