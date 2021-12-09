@@ -36,6 +36,9 @@ class Picture(Observer):
         screen_draw.line([(60, 102), (60, 119)])
         Plot.caption(coin, flatten_prices[len(flatten_prices) - 1], 95, SCREEN_WIDTH, FONT_LARGE, screen_draw)
         image.save(self.filename)
+    
+    def screenrefresh(self):
+        pass
 
     def close(self):
         pass
