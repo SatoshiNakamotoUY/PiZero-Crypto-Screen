@@ -8,6 +8,7 @@ Have made the following enhancements:
 * Changed to make use of coingecko api
 * Cycle through multiple cryptocurrencies
 * Right-aligned the price
+* Ability to change base currency to others instead of just usd
 
 
 
@@ -82,7 +83,8 @@ console_logs             : false
 dummy_data               : false
 refresh_interval_minutes : 6
 days                     : 1
-currency                 : bitcoin:BTC,ethereum:ETH,solana:SOL,wonderland:TIME
+cryptocurrencies         : bitcoin:BTC,ethereum:ETH,solana:SOL,wonderland:TIME
+currency                 : usd
 
 # Enabled screens or devices
 screens : [
