@@ -37,7 +37,7 @@ class Config:
         return self._conf.get('base', 'cryptocurrencies', fallback='bitcoin:BTC')
     
     @property
-    def currency(self)
+    def currency(self):
         return self._conf.get('base', 'currency', fallback='usd')
     
     @property
