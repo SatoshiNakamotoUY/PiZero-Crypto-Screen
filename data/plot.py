@@ -54,13 +54,14 @@ class Plot:
         # price_position = (((screen_width - text_width - price_offset) / 2) + price_offset, y)
         price_position = ((screen_width - text_width), y)
         draw.text(price_position, price_text, font=font, fill=fill)
+        days_text = config.days + " DAY"
+
 
     @staticmethod
     def candle(data, size=(100, 100), position=(0, 0), draw=None, fill_neg="#000000", fill_pos=None):
         width = size[0]
         height = size[1]
-
-        candle_width = 9
+        candle_width = 7
         space = 1
 
         num_of_candles = width // (candle_width + space)
@@ -69,11 +70,17 @@ class Plot:
         data_offset = len(data) % num_of_candles
         candle_data = []
         for i in range(data_offset, len(data), windows_per_candle):
-            window = data[i:i + windows_per_candle - 1]
-            open = window[0][0]
-            close = window[len(window) - 1][3]
-            high = max([i[1] for i in window])
-            low = min([i[2] for i in window])
+            if windows_per_candle > 1:
+                window = data[i:i + windows_per_candle - 1]
+                open = window[0][0]
+                close = window[len(window) - 1][3]
+                high = max([i[1] for i in window])
+                low = min([i[2] for i in window])
+            else:
+                open = data[i][0]
+                close = data[i][3]
+                high = data[i][1]
+                low = data[i][2]
             candle_data.append((open, high, low, close))
 
         all_values = [item for sublist in candle_data for item in sublist]
