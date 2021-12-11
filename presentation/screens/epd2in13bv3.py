@@ -36,7 +36,7 @@ class Epd2in13bv3(Observer):
             Plot.candle(prices, size=(SCREEN_WIDTH - 38, 79), position=(35, 0), draw=screen_draw)
         else:
             last_prices = [x[3] for x in prices]
-            Plot.line(last_prices, size=(SCREEN_WIDTH - 36, 79), position=(36, 0), draw=screen_draw)
+            Plot.line(last_prices, size=(SCREEN_WIDTH - 36, 79), position=(36, 0), draw=screen_draw, fill="#C0C0C0")
 
         flatten_prices = [item for sublist in prices for item in sublist]
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (32, 76), draw=screen_draw)
@@ -53,7 +53,7 @@ class Epd2in13bv3(Observer):
             self.epd.getbuffer(image_black_rotated),
             self.epd.getbuffer(image_ry_rotated)
         )
-    
+
     def screenrefresh(self):
         self.epd.init()
         self.image_black = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
