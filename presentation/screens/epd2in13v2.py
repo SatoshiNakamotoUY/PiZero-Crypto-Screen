@@ -29,7 +29,7 @@ class Epd2in13v2(Observer):
     def _init_display(epd):
         epd.init(epd.FULL_UPDATE)
         epd.Clear(0xFF)
-        screen_image = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
+        screen_image = Image.new('L', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
         epd.displayPartBaseImage(epd.getbuffer(screen_image))
         #epd.init(epd.PART_UPDATE)
         return screen_image
