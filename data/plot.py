@@ -54,21 +54,24 @@ class Plot:
         # price_position = (((screen_width - text_width - price_offset) / 2) + price_offset, y)
         price_position = ((screen_width - text_width), y)
         draw.text(price_position, price_text, font=font, fill=fill)
-        days_text = config.days + " DAY"
-
 
     @staticmethod
     def candle(data, size=(100, 100), position=(0, 0), draw=None, fill_neg="#000000", fill_pos=None):
         width = size[0]
         height = size[1]
-        candle_width = 7
+        candle_width = 5
         space = 1
+        windows_per_candle = 1
+        data_offset = 0
+        candle_data = []
 
         num_of_candles = width // (candle_width + space)
         leftover_space = width % (candle_width + space)
-        windows_per_candle = len(data) // num_of_candles
-        data_offset = len(data) % num_of_candles
-        candle_data = []
+
+        if num_of_candles < len(data):
+            windows_per_candle = len(data) // num_of_candles
+            data_offset = len(data) % num_of_candles
+
         for i in range(data_offset, len(data), windows_per_candle):
             if windows_per_candle > 1:
                 window = data[i:i + windows_per_candle - 1]
