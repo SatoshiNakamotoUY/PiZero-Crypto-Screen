@@ -1,4 +1,5 @@
 import math
+from datetime import datetime
 from config.config import config
 
 class Plot:
@@ -23,6 +24,21 @@ class Plot:
         except IndexError as e:
             logger.error(str(e))
         draw.line(plot_data, fill="#000000")
+
+    @staticmethod
+    def date_labels(prices, font, position_first=(0, 0), position_last=(0, 0), draw=None, fill=None):
+        def human_date(timestamp):
+            #return datetime.fromtimestamp(timestamp/1000).strftime('%d %b')
+            return datetime.fromtimestamp(timestamp/1000).strftime('%d %b %H:%M')
+
+        #date_data.append(datetime.fromtimestamp(data[data_offset][0]/1000).strftime('%d %b %H:%M'))
+        #date_data.append(datetime.fromtimestamp(data[len(data)-1][0]/1000).strftime('%d %b %H:%M'))
+        text_width, _ = draw.textsize(human_date(prices[1]), font)
+        price_position = ((position_last[0] - text_width), position_last[1])
+
+        draw.text(position_first, human_date(prices[0]), font=font, fill=fill)
+        draw.text(price_position, human_date(prices[1]), font=font, fill=fill)
+
 
     # TODO: Implement variable number of elements to generate
     @staticmethod
@@ -71,6 +87,9 @@ class Plot:
         if num_of_candles < len(data):
             windows_per_candle = len(data) // num_of_candles
             data_offset = len(data) % num_of_candles
+
+        #date_data.append(datetime.fromtimestamp(data[data_offset][0]/1000).strftime('%d %b %H:%M'))
+        #date_data.append(datetime.fromtimestamp(data[len(data)-1][0]/1000).strftime('%d %b %H:%M'))
 
         for i in range(data_offset, len(data), windows_per_candle):
             if windows_per_candle > 1:

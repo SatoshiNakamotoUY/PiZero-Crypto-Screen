@@ -23,8 +23,9 @@ def fetch_prices(token):
     url = f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency={config.currency}&days={config.days}'
     req = Request(url)
     data = urlopen(req).read()
-    external_data = json.loads(data)
-    prices = [entry[1:] for entry in external_data]
+    prices = json.loads(data)
+    #external_data = json.loads(data)
+    #prices = [entry[1:] for entry in external_data]
     return prices
 
 

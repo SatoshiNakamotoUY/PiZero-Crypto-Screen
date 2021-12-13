@@ -23,14 +23,20 @@ class Picture(Observer):
     def update(self, coin, prices):
         image = Image.new('L', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
         screen_draw = ImageDraw.Draw(image)
+        prices_trimmed = [entry[1:] for entry in prices]
         if self.mode == "candle":
-            Plot.candle(prices, size=(SCREEN_WIDTH - 45, 93), position=(41, 0), draw=screen_draw)
+            Plot.candle(prices_trimmed, size=(SCREEN_WIDTH - 45, 88), position=(41, 0), draw=screen_draw)
         else:
-            last_prices = [x[3] for x in prices]
-            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 93), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
+            last_prices = [x[3] for x in prices_trimmed]
+            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 88), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
 
-        flatten_prices = [item for sublist in prices for item in sublist]
+        #flatten_prices = [item for sublist in prices for item in sublist]
+        date_data = [prices[0][0],prices[len(prices)-1][0]]
+        #date_data.append(prices[0][0])
+        #date_data.append(prices[len(prices)-1][0])
+        flatten_prices = [item for sublist in prices_trimmed for item in sublist]
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (38, 89), draw=screen_draw)
+        Plot.date_labels(date_data, FONT_SMALL, (44, 89), (240, 89), draw=screen_draw)
         screen_draw.line([(10, 98), (240, 98)])
         screen_draw.line([(39, 4), (39, 94)])
         #screen_draw.line([(60, 102), (60, 119)])

@@ -37,14 +37,17 @@ class Epd2in13v2(Observer):
     def form_image(self, coin, prices, screen_draw):
         screen_draw.rectangle((0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), fill="#ffffff")
         screen_draw = self.screen_draw
+        prices_trimmed = [entry[1:] for entry in prices]
         if self.mode == "candle":
-            Plot.candle(prices, size=(SCREEN_WIDTH - 45, 93), position=(41, 0), draw=screen_draw)
+            Plot.candle(prices_trimmed, size=(SCREEN_WIDTH - 45, 88), position=(41, 0), draw=screen_draw)
         else:
-            last_prices = [x[3] for x in prices]
-            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 93), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
+            last_prices = [x[3] for x in prices_trimmed]
+            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 88), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
 
-        flatten_prices = [item for sublist in prices for item in sublist]
+        flatten_prices = [item for sublist in prices_trimmed for item in sublist]
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (38, 89), draw=screen_draw)
+        date_data = [prices[0][0],prices[len(prices)-1][0]]
+        Plot.date_labels(date_data, FONT_SMALL, (44, 89), (240, 89), draw=screen_draw)
         screen_draw.line([(10, 98), (240, 98)])
         screen_draw.line([(39, 4), (39, 94)])
         #screen_draw.line([(60, 102), (60, 119)])
