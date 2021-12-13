@@ -39,10 +39,10 @@ class Epd2in13v2(Observer):
         screen_draw = self.screen_draw
         prices_trimmed = [entry[1:] for entry in prices]
         if self.mode == "candle":
-            Plot.candle(prices_trimmed, size=(SCREEN_WIDTH - 45, 88), position=(41, 0), draw=screen_draw)
+            Plot.candle(prices_trimmed, size=(SCREEN_WIDTH - 45, 86), position=(41, 0), draw=screen_draw)
         else:
             last_prices = [x[3] for x in prices_trimmed]
-            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 88), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
+            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 86), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
 
         flatten_prices = [item for sublist in prices_trimmed for item in sublist]
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (38, 89), draw=screen_draw)

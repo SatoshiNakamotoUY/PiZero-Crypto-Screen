@@ -25,10 +25,10 @@ class Picture(Observer):
         screen_draw = ImageDraw.Draw(image)
         prices_trimmed = [entry[1:] for entry in prices]
         if self.mode == "candle":
-            Plot.candle(prices_trimmed, size=(SCREEN_WIDTH - 45, 88), position=(41, 0), draw=screen_draw)
+            Plot.candle(prices_trimmed, size=(SCREEN_WIDTH - 45, 86), position=(41, 0), draw=screen_draw)
         else:
             last_prices = [x[3] for x in prices_trimmed]
-            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 88), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
+            Plot.line(last_prices, size=(SCREEN_WIDTH - 42, 86), position=(42, 0), draw=screen_draw, fill="#D3D3D3")
 
         #flatten_prices = [item for sublist in prices for item in sublist]
         date_data = [prices[0][0],prices[len(prices)-1][0]]
