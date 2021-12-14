@@ -37,13 +37,14 @@ class Inkywhatrbw(Observer):
         BLACK = self.inky_display.BLACK
         screen_draw = ImageDraw.Draw(self.image)
         screen_draw.rectangle([0,0,SCREEN_WIDTH,SCREEN_HEIGHT],fill=WHITE)
+        prices_list = [entry[1:] for entry in prices]
         if self.mode == "candle":
-            Plot.candle(prices, size=(SCREEN_WIDTH - LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN), position=(LEFT_MARGIN, 0), draw=screen_draw, fill_neg=RED, fill_pos=BLACK)
+            Plot.candle(prices_list, size=(SCREEN_WIDTH - LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN), position=(LEFT_MARGIN, 0), draw=screen_draw, fill_neg=RED, fill_pos=BLACK)
         else:
-            last_prices = [x[3] for x in prices]
+            last_prices = [x[3] for x in prices_list]
             Plot.line(last_prices, size=(SCREEN_WIDTH - LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN), position=(LEFT_MARGIN, 0), draw=screen_draw, fill=BLACK)
 
-        flatten_prices = [item for sublist in prices for item in sublist]
+        flatten_prices = [item for sublist in prices_list for item in sublist]
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN - SMALL_FONT_SIZE - 3), draw=screen_draw, fill=BLACK)
         screen_draw.line([(0, SCREEN_HEIGHT - BOTTOM_MARGIN), (SCREEN_WIDTH, SCREEN_HEIGHT - BOTTOM_MARGIN)], fill=BLACK)
         screen_draw.line([(LEFT_MARGIN, 0), (LEFT_MARGIN, SCREEN_HEIGHT - BOTTOM_MARGIN)], fill=BLACK)
@@ -53,7 +54,7 @@ class Inkywhatrbw(Observer):
         self.form_image(coin, data)
         self.inky_display.set_image(self.image)
         self.inky_display.show()
-        
+
     def screenrefresh(self):
         self.inky_display = InkyWHAT("red")
         self.inky_display.set_border(self.inky_display.WHITE)

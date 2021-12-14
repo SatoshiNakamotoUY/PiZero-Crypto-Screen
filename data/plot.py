@@ -31,8 +31,6 @@ class Plot:
             #return datetime.fromtimestamp(timestamp/1000).strftime('%d %b')
             return datetime.fromtimestamp(timestamp/1000).strftime('%d %b %H:%M')
 
-        #date_data.append(datetime.fromtimestamp(data[data_offset][0]/1000).strftime('%d %b %H:%M'))
-        #date_data.append(datetime.fromtimestamp(data[len(data)-1][0]/1000).strftime('%d %b %H:%M'))
         text_width, _ = draw.textsize(human_date(prices[1]), font)
         price_position = ((position_last[0] - text_width), position_last[1])
 
