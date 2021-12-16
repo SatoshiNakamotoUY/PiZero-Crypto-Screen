@@ -33,7 +33,7 @@ class Picture(Observer):
         flatten_prices = [item for sublist in prices_list for item in sublist]
         Plot.y_axis_labels(flatten_prices, FONT_SMALL, (0, 0), (38, 89), draw=screen_draw)
         date_labels = [prices[0][0],prices[len(prices)-1][0]]
-        Plot.date_labels(date_data, FONT_SMALL, (44, 89), (240, 89), draw=screen_draw)
+        Plot.date_labels(date_labels, FONT_SMALL, (44, 89), (248, 89), draw=screen_draw)
         screen_draw.line([(10, 98), (240, 98)])
         screen_draw.line([(39, 4), (39, 94)])
         #screen_draw.line([(60, 102), (60, 119)])
