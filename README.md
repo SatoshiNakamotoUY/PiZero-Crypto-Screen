@@ -1,16 +1,20 @@
 # Credits
 
-Project is forked from dr-mod's zero-btc-screen.
+Project is forked from shadowandy
+https://github.com/shadowandy
+which is also a form from from dr-mod's zero-btc-screen
+https://github.com/dr-mod/zero-btc-screen
 
-# Enhancements
+# Enhancements by SatoshiUY
+* Added display epd2in3bv4 (red, white, black)
+  It's only configured to display black and white colours
 
+# Enhancements by shadowandy
 Have made the following enhancements:
 * Changed to make use of coingecko api
 * Cycle through multiple cryptocurrencies
 * Right-aligned the price
 * Ability to change base currency to others instead of just usd
-
-
 
 # Zero Crypto Screen
 
