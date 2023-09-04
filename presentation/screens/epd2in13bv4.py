@@ -16,7 +16,7 @@ FONT_SMALL = ImageFont.truetype(
 FONT_LARGE = ImageFont.truetype(
     os.path.join(os.path.dirname(__file__), os.pardir, 'PixelSplitter-Bold.ttf'), 25)
 
-class Epd2in13bv3(Observer):
+class Epd2in13bv4(Observer):
 
     def __init__(self, observable, mode):
         super().__init__(observable=observable)
