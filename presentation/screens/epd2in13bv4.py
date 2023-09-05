@@ -56,11 +56,10 @@ class Epd2in13bv4(Observer):
         )
 
     def screenrefresh(self):
-        self.epd.init()
-        self.image_black = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
-        self.image_ry = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
-        self.draw_black = ImageDraw.Draw(self.image_black)
-        self.draw_ry = ImageDraw.Draw(self.image_ry)
+        self.epd.init(self.epd.FULL_UPDATE)
+        self.epd.Clear(0xFF)
+        screen_image = Image.new('1', (SCREEN_WIDTH, SCREEN_HEIGHT), 255)
+        self.epd.displayPartBaseImage(self.epd.getbuffer(screen_image))
 
     def close(self):
         self.epd.Dev_exit()
