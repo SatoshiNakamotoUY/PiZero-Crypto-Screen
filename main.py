@@ -8,6 +8,8 @@ from config.builder import Builder
 from config.config import config
 from logs import logger
 from presentation.observer import Observable
+from waveshare_epd import epd2in13b_V4
+epd = epd2in13b_V4.EPD()
 
 SCREEN_REFRESH_INTERVAL = 9600
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M"
@@ -15,8 +17,6 @@ DATETIME_FORMAT = "%Y-%m-%dT%H:%M"
 
 def get_dummy_data():
     logger.info('Generating dummy data')
-
-
 
 def fetch_prices(token):
     logger.info('Fetching prices')
@@ -27,7 +27,6 @@ def fetch_prices(token):
     #external_data = json.loads(data)
     #prices = [entry[1:] for entry in external_data]
     return prices
-
 
 def main():
     logger.info('Initialize')
@@ -57,8 +56,12 @@ def main():
         logger.info('Exit')
         data_sink.screenrefresh_observers()
         data_sink.close()
+        logging.info("Clear...")
+        epd.init()
+        epd.clear()
+        logging.info("Goto Sleep...")
+        epd.sleep()
         exit()
-
 
 if __name__ == "__main__":
     main()
