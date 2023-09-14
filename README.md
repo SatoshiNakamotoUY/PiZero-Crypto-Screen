@@ -100,7 +100,7 @@ console_logs             : false
 dummy_data               : false
 refresh_interval_minutes : 6
 days                     : 1
-cryptocurrencies         : bitcoin:BTC,ethereum:ETH,solana:SOL,wonderland:TIME
+cryptocurrencies         : bitcoin:BTC,cardano:ADA
 currency                 : usd
 
 # Pantallas Habilitadas
