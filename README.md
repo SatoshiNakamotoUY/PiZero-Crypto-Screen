@@ -156,7 +156,7 @@ mode : candle
         [Install]
         WantedBy=multi-user.target
         ```
-  3. Habilitar el revicio para que se inicie al prender la Raspberry Pi
+  3. Habilitar el srevicio para que se inicie al prender la Raspberry Pi
        ```
         sudo systemctl enable crypto-screen.service
        ```
