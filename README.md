@@ -13,11 +13,11 @@ https://github.com/dr-mod/zero-btc-screen
 * Se usa la api de CoinGecko
 * Alternancia entre varias monedas
 * Se alinea el texto contra la derecha
-* Se puede cambiar la moneda de base en la que se muestra el preci (usd, eur, etc)
+* Se puede cambiar la moneda de base en la que se muestra el precio (usd, eur, etc)
 
 # Zero Crypto Screen - Original - Traduccion por SatoshiUY
 
-Precio del Bitcoin u otra moenda para Raspberry PiZero
+Precio del Bitcoin u otra moneda para Raspberry PiZero
 
 ![display](display_1.jpeg)
 ![display](display_2.jpeg)
@@ -77,7 +77,9 @@ Para configurar que pantalla usar se debe modificar el archivo configuration.cfg
 Los valores para las monedas (cryptocurrencies) se deben ingresar con el formato <Cryptomoneda 1:abreviación moneda 1>, <Cryptomoneda 2:abreviación moneda 2>, etc.
 El ejemplo debajo es para dos monedas, bitcoin y cardano. Ver mas detalles en https://www.coingecko.com/.
 
-La configuración de los dias (days) determina el intervalo entre velas, admite valers 1, 7 o 14. El valor 1 represent 30minutos, los valore 7 y 14 dan velas de 4 horas.
+La configuración de los dias (days) determina el intervalo entre velas, admite valers 1, 7 o 14. 
+El valor 1 represent 30minutos, los valore 7 y 14 dan velas de 4 horas.
+El campo "refresh_interval_minutes" define cada cuantos minutos se va a refrescar la imágen.
 
 ```cfg
 [base]
@@ -117,11 +119,8 @@ filename : /home/pi/output.png
 mode : candle
 ```
 
-### Inicio automático
+### Configuració de Inicio automático
 
-Para iniciar la pantalla al prender la Raspberry se pueden seguir dos caminos:
-
-Usando los servicios daemon
   1. Crear un nuevo archivo de configuracion del servicio
        ```
         sudo nano /etc/systemd/system/crypto-screen.service
