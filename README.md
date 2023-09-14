@@ -81,7 +81,9 @@ La aplicación soporta multiples pantallas tipo e-screen, y adicionalmente panta
 
 Para configurar la pantalla a usar se debe modificar el archivo configuration.cfg. En el siguiente ejemplo se usa la pantalla epd2in13bv4. 
 
-Los valores para las monedas (cryptocurrencies) se deben ingresar con el formato <Cryptomoneda 1:abreviación moneda 1>, <Cryptomoneda 2:abreviación moneda 2>, etc.
+Los valores para las monedas (cryptocurrencies) se deben ingresar con el formato:
+
+  <Cryptomoneda 1:abreviación moneda 1>, <Cryptomoneda 2:abreviación moneda 2>, etc.
 
 El ejemplo debajo es para dos monedas, bitcoin y cardano. Ver mas detalles en https://www.coingecko.com/.
 
