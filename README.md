@@ -119,7 +119,7 @@ filename : /home/pi/output.png
 mode : candle
 ```
 
-### Configuració de Inicio automático
+## Configuració de Inicio automático
 
   1. Crear un nuevo archivo de configuracion del servicio
        ```
