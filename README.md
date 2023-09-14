@@ -82,10 +82,13 @@ La aplicación soporta multiples pantallas tipo e-screen, y adicionalmente panta
 Para configurar la pantalla a usar se debe modificar el archivo configuration.cfg. En el siguiente ejemplo se usa la pantalla epd2in13bv4. 
 
 Los valores para las monedas (cryptocurrencies) se deben ingresar con el formato <Cryptomoneda 1:abreviación moneda 1>, <Cryptomoneda 2:abreviación moneda 2>, etc.
+
 El ejemplo debajo es para dos monedas, bitcoin y cardano. Ver mas detalles en https://www.coingecko.com/.
 
 La configuración de los dias (days) determina el intervalo entre velas, admite valers 1, 7 o 14. 
+
 El valor 1 represent 30minutos, los valore 7 y 14 dan velas de 4 horas.
+
 El campo "refresh_interval_minutes" define cada cuantos minutos se va a refrescar la imágen.
 
 ```cfg
@@ -159,6 +162,7 @@ mode : candle
         sudo systemctl start crypto-screen.service
        ```
        En caso de problemas se puede utilizar el serviccio de logging de este programa (mencionado debajo)
+     
        Alternativamente se puede chequear si existe alguna salida en el logging del sistema.
        ```
         sudo journalctl -f -u crypto-screen.service
