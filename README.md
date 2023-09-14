@@ -7,8 +7,8 @@ https://github.com/dr-mod/zero-btc-screen
 
 # Mejoras realizadas por SatoshiUY
 * Se agrega la pantalla epd2in3bv4 (rojo, blanco, negro).
-  Está configurado en blanco y negro
-* Se limpia la pantalla, se deja en blanaco, al interrumpir el proceso  
+    Está configurado en blanco y negro
+* Se limpia la pantalla al interrumpir el proceso, se deja en blanco
 
 # Mejoras realizadas por shadowandy
 * Se usa la api de CoinGecko
