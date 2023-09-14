@@ -6,8 +6,8 @@ que a su vez es un fork del proyecto de dr-mod's zero-btc-screen
 https://github.com/dr-mod/zero-btc-screen
 
 # Mejoras realizadas por SatoshiUY
-* Se agrega la pantalla epd2in3bv4 (rojo, blanco, negro)
-  Está configurado para mostrar colores blanco y negro
+* Se agrega la pantalla epd2in3bv4 (rojo, blanco, negro).
+  Está configurado en blanco y negro
 
 # Mejoras realizadas por shadowandy
 * Se usa la api de CoinGecko
@@ -22,7 +22,7 @@ Precio del Bitcoin u otra moneda para Raspberry PiZero
 ![display](display_1.jpeg)
 ![display](display_2.jpeg)
 
-## Equipamiento
+## Equipo
 
 ### Platforma
 
@@ -75,12 +75,11 @@ Precio del Bitcoin u otra moneda para Raspberry PiZero
     python3 ~/PiZero-Crypo-Screen/main.py
     ```
 
-
 ## Configuración de la Pantalla
 
-La aplicación soporta multipls pantallas tipo e-screen, y adicionalmente pantalla tipo "imágen[
+La aplicación soporta multiples pantallas tipo e-screen, y adicionalmente pantalla tipo "imágen"
 
-Para configurar que pantalla usar se debe modificar el archivo configuration.cfg. En el siguiente ejemplo se usa la pantalla epd2in13bv4 
+Para configurar la pantalla a usar se debe modificar el archivo configuration.cfg. En el siguiente ejemplo se usa la pantalla epd2in13bv4. 
 
 Los valores para las monedas (cryptocurrencies) se deben ingresar con el formato <Cryptomoneda 1:abreviación moneda 1>, <Cryptomoneda 2:abreviación moneda 2>, etc.
 El ejemplo debajo es para dos monedas, bitcoin y cardano. Ver mas detalles en https://www.coingecko.com/.
@@ -103,7 +102,7 @@ currency                 : usd
 screens : [
 #    epd2in13v2
 #    epd2in13bv3
-#    epd2in13bv4
+    epd2in13bv4
 #    picture
 #    inkyWhatRBW
   ]
