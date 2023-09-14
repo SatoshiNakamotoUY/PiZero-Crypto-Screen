@@ -64,11 +64,11 @@ Precio del Bitcoin u otra moneda para Raspberry PiZero
 
 5. Modificar las lineas 11 y 12 del archivo main.py
    
-     En estas líneas cambiar "epd2in13b_V4" por la correspondiente a su pantalla
+   En estas líneas cambiar "epd2in13b_V4" por la correspondiente a su pantalla
    
-       11  from waveshare_epd import epd2in13b_V4
-     
-       12  epd = epd2in13b_V4.EPD()
+      11  from waveshare_epd import epd2in13b_V4
+       
+      12  epd = epd2in13b_V4.EPD()
    
 5. Inicializar
     ```
