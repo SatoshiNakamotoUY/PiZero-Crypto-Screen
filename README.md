@@ -61,7 +61,7 @@ Precio del Bitcoin u otra moneda para Raspberry PiZero
 4. Descargar el codigo de  PiZero Crypto Screen (nombre original de dr mod: zero-btc-screen)
     ```
     git clone https://github.com/SatoshiNakamotoUY/PiZero-Crypto-Screen.git ~/Pantalla
-    ```
+
 5. Modificar las lineas 11 y 12 del archivo main.py
      En estas líneas cambiar "epd2in13b_V4" por la correspondiente a su pantalla
      11  from waveshare_epd import epd2in13b_V4
